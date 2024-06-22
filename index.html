@@ -21,23 +21,19 @@
     <script src="https://unpkg.com/@speckle/viewer@latest"></script>
     <script>
         const viewerContainer = document.getElementById('viewer');
-        const speckleStreamId = 'a8adb1ab64';
-        const accessToken = '0d8ce4b49d198fafa15a51018a3870fd53862c5479';
-
         const viewer = new Speckle.Viewer({
             container: viewerContainer,
             showStats: false,
         });
 
-        const url = `https://speckle.xyz/streams/${speckleStreamId}/commits/latest?access_token=${accessToken}`;
-        
+        const url = 'https://speckle.xyz/streams/a8adb1ab64/commits/latest';
+
         viewer.load(url)
             .then(() => {
                 console.log('Model loaded successfully!');
             })
             .catch(err => {
                 console.error('Error loading model:', err);
-                alert('Error loading model. Check console for details.');
             });
 
         viewer.on('load-complete', () => {
